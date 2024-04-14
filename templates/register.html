@@ -1,0 +1,313 @@
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES-AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+      body {
+        background: black;
+      }
+      .logo {
+          font-family: fantasy;
+          font-size: xx-large;
+      }
+      .description {
+          font-style: "Mona Sans","Mona Sans Header Fallback",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          font-size: xxx-large;
+          text-align: center;
+        }
+      .divider:after,
+      .divider:before {
+          content: "";
+          flex: 1;
+          height: 1px;
+          background: #eee;
+      }
+          .h-custom {
+          height: calc(100% - 73px);
+      }
+          @media (max-width: 450px) {
+          .h-custom {
+          height: 100%;
+          }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .description {
+          font-size: 30px;
+          margin-top: 50px;
+          margin-bottom: 0;
+        }
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="logo navbar-brand" href="/">ES-AI</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="logo offcanvas-title" id="offcanvasDarkNavbarLabel">ES-AI</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/">Register</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{% url 'main:about' %}">About</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </nav>
+
+
+    <div class="container-sm">
+        <section class="vh-100">
+            <div class="container-fluid h-custom">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                  <p class="description navbar-brand text-light">AI English Assistant</p>
+
+                  <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjVvN3h1dTB2d3FlOG5qZ25kOTNjYzUyaGM2cWgzazlvd2I2b2RweiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IcZhFmufozDCij3p22/giphy.gif"
+                    class="img-fluid" alt="Sample image">
+                </div>
+
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1" id="signin">
+                  <form method="post" action="{% provider_login_url 'google' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-dark btn-lg" style="display: block;width: 100%;">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="-0.5 0 48 48" version="1.1" style="vertical-align: text-bottom;margin-right: 5px">
+    
+                        <title>Google-color</title>
+                        <desc>Created with Sketch.</desc>
+                        <defs>
+                    
+                      </defs>
+                          <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                              <g id="Color-" transform="translate(-401.000000, -860.000000)">
+                                  <g id="Google" transform="translate(401.000000, 860.000000)">
+                                      <path d="M9.82727273,24 C9.82727273,22.4757333 10.0804318,21.0144 10.5322727,19.6437333 L2.62345455,13.6042667 C1.08206818,16.7338667 0.213636364,20.2602667 0.213636364,24 C0.213636364,27.7365333 1.081,31.2608 2.62025,34.3882667 L10.5247955,28.3370667 C10.0772273,26.9728 9.82727273,25.5168 9.82727273,24" id="Fill-1" fill="#FBBC05">
+                      
+                      </path>
+                                      <path d="M23.7136364,10.1333333 C27.025,10.1333333 30.0159091,11.3066667 32.3659091,13.2266667 L39.2022727,6.4 C35.0363636,2.77333333 29.6954545,0.533333333 23.7136364,0.533333333 C14.4268636,0.533333333 6.44540909,5.84426667 2.62345455,13.6042667 L10.5322727,19.6437333 C12.3545909,14.112 17.5491591,10.1333333 23.7136364,10.1333333" id="Fill-2" fill="#EB4335">
+                      
+                      </path>
+                                      <path d="M23.7136364,37.8666667 C17.5491591,37.8666667 12.3545909,33.888 10.5322727,28.3562667 L2.62345455,34.3946667 C6.44540909,42.1557333 14.4268636,47.4666667 23.7136364,47.4666667 C29.4455,47.4666667 34.9177955,45.4314667 39.0249545,41.6181333 L31.5177727,35.8144 C29.3995682,37.1488 26.7323182,37.8666667 23.7136364,37.8666667" id="Fill-3" fill="#34A853">
+                      
+                      </path>
+                                      <path d="M46.1454545,24 C46.1454545,22.6133333 45.9318182,21.12 45.6113636,19.7333333 L23.7136364,19.7333333 L23.7136364,28.8 L36.3181818,28.8 C35.6879545,31.8912 33.9724545,34.2677333 31.5177727,35.8144 L39.0249545,41.6181333 C43.3393409,37.6138667 46.1454545,31.6490667 46.1454545,24" id="Fill-4" fill="#4285F4">
+                      
+                      </path>
+                                  </g>
+                              </g>
+                          </g>
+                      </svg>  
+                      Continue with Google
+                    </button>
+                  </form>
+                  <form method="post" id="form_login">
+                    <div class="divider d-flex align-items-center my-4">
+                      <p class="text-center fw-bold mx-3 mb-0" style="font-size: x-large;">SIGN IN</p>
+                    </div>
+          
+                    <div class="form-floating mb-3">
+                        <input name="username" type="email" class="form-control bg-dark text-light" style="border: 0;" id="login_login" placeholder="jimcarrey">
+                        <label for="floatingInput" class="text-light">Login</label>
+                      </div>
+                    <div class="form-floating">
+                      <input name="password" type="password" class="form-control bg-dark text-light" id="password_login" style="border: 0;" placeholder="Password">
+                      <label for="floatingPassword" class="text-light">Password</label>
+                      <div class="invalid-feedback">
+                        Login or password is incorrect. Please try again
+                      </div>
+                    </div>
+          
+                
+          
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                      <button type="submit" class="btn btn-primary btn-lg" id="submit_login"
+                        style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+                      <button type="submit" class="btn btn-primary btn-lg" id="loading_login" disabled
+                        style="padding-left: 2.5rem; padding-right: 2.5rem; display: none;">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Login</button>
+                        <br>
+                      <p class="small fw-bold mt-2 pt-1 mb-0" style="display: none;">Don't have an account?
+                        <a class="link-danger" id="register_btn">Register</a></p>
+                    </div>
+          
+                  </form>
+                </div>
+
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1" id="signup" style="display: none;">
+                    <form method="post" id="form_register">
+                      <div class="divider d-flex align-items-center my-4">
+                        <p class="text-center fw-bold mx-3 mb-0" style="font-size: x-large;">Sign up</p>
+                      </div>
+            
+                        <div class="form-floating mb-3">
+                          <input name="fullname" maxlength="50" type="email" class="form-control" id="fullname_register" placeholder="name@example.com" required>
+                          <label for="floatingInput">Fullname</label>
+                          <div class="invalid-feedback">
+                            Please enter your fullname (min 3 letters)
+                          </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input name="username" type="email" maxlength="50" minlength="3" class="form-control" id="login_register" placeholder="name@example.com" required>
+                            <label for="floatingInput">Login</label>
+                            <div class="invalid-feedback">
+                              Please choose another username (min 3 letters)
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input name="password" type="password" maxlength="50" minlength="8" class="form-control" id="password_register" placeholder="name@example.com" required>
+                            <label for="floatingInput">Password</label>
+                            <div class="invalid-feedback">
+                              Please enter a new password (min 8 letters)
+                            </div>
+                          </div>
+                        <div class="form-floating">
+                        <input name="password_repeat" type="password" maxlength="50" minlength="8" class="form-control" id="password_repeat_register" placeholder="Password" required>
+                        <label for="floatingPassword">Confirm password</label>
+                        <div class="invalid-feedback">
+                              Please repeat your password here
+                        </div>
+                        </div>
+            
+                  
+            
+                      <div class="text-center text-lg-start mt-4 pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg" id="submit_register"
+                          style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
+                        <button type="submit" class="btn btn-primary btn-lg" id="loading_register" disabled
+                          style="padding-left: 2.5rem; padding-right: 2.5rem; display: none;">
+                          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                          Register</button>
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Have an account?
+                            <a class="link-danger" id="signin_btn">Sign in</a></p><br>
+                      </div>
+            
+                    </form>
+                  </div>
+              </div>
+            </div>
+            
+          </section>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
+    <script>
+        var signin = document.getElementById('signin')
+        var signup = document.getElementById('signup')
+        var signin_btn = document.getElementById('signin_btn')
+        var register_btn = document.getElementById('register_btn')
+
+        signin_btn.addEventListener('click', function(){
+            signin.style.display = 'block'
+            signup.style.display = 'none'
+        })
+        register_btn.addEventListener('click', function(){
+            signin.style.display = 'none'
+            signup.style.display = 'block'
+        })
+
+
+        // Login
+        var login_login = document.getElementById('login_login')
+        var password_login = document.getElementById('password_login')
+        var submit_login = document.getElementById('submit_login')
+        var loading_login = document.getElementById('loading_login')
+        var form_login = document.getElementById('form_login')
+
+        submit_login.addEventListener('click', async function(event){
+          event.preventDefault()
+          submit_login.style.display = 'none'
+          loading_login.style.display = 'block'
+          login_login.classList.remove('is-invalid')
+          password_login.classList.remove('is-invalid')
+
+
+          let request = await fetch('/api/login/', {
+            method: 'POST',
+            body: new FormData(form_login)
+          })
+          let response = await request.json()
+          console.log(response)
+
+          if (response.message == 'failed'){
+            login_login.classList.add('is-invalid')
+            password_login.classList.add('is-invalid')
+          } else {
+            location.href = '/'
+          }
+
+          submit_login.style.display = 'block'
+          loading_login.style.display = 'none'
+        })
+
+        // Register
+        var fullname_register = document.getElementById('fullname_register')
+        var login_register = document.getElementById('login_register')
+        var password_register = document.getElementById('password_register')
+        var password_repeat_register = document.getElementById('password_repeat_register')
+        var submit_register = document.getElementById('submit_register')
+        var loading_register = document.getElementById('loading_register')
+        var form_register = document.getElementById('form_register')
+
+        submit_register.addEventListener('click', async function(event){
+          event.preventDefault()
+          submit_register.style.display = 'none'
+          loading_register.style.display = 'block'
+          fullname_register.classList.remove('is-invalid')
+          login_register.classList.remove('is-invalid')
+          password_register.classList.remove('is-invalid')
+          password_repeat_register.classList.remove('is-invalid')
+
+
+          let request = await fetch('/api/register/', {
+            method: 'POST',
+            body: new FormData(form_register)
+          })
+          let response = await request.json()
+          console.log(response)
+
+          if (response.message != 'success'){
+            for (let i = 0; i < response.errors.length; i++){
+              switch (response.errors[i]){
+                case 'password':
+                  password_register.classList.add('is-invalid')
+                  break
+                case 'password-repeat':
+                  password_repeat_register.classList.add('is-invalid')
+                  break
+                case 'username':
+                  login_register.classList.add('is-invalid')
+                  break
+                case 'fullname':
+                  fullname_register.classList.add('is-invalid')
+                  break
+              }
+            }
+          } else {
+            location.href = '/'
+          }
+          
+          submit_register.style.display = 'block'
+          loading_register.style.display = 'none'
+        })
+    </script>
+</body>
+</html>
